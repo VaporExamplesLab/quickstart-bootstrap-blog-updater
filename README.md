@@ -18,7 +18,7 @@
 [Original Setup](#OriginalSetup) •
 [Resources](#Resources) 
 
-## Getting Started <a id="GettingStarted">[▴](#toc)</a>
+## Getting Started <span id="GettingStarted">[▴](#toc)</span>
 
 **Prerequisites**
 
@@ -63,15 +63,21 @@ cd quickstart-bootstrap-blog-updater
 vapor update -y
 ```
 
-Set Xcode scheme to "Run > My Mac".
+Set Xcode scheme Run Arguments.
 
-![](README_files/XcodeScheme.png)
+```
+--original-dir='path_original_blog_content'
+--processed-dir='path_process_blog_content'
+--verbose
+```
+
+![Xcode Run Arguments](README_files/XcodeArguments.png)
 
 Click the run button and check the results in a browser at `http://localhost:8080`.
 
 ![TBD:LandingPage](README_files/LandingPage.png)
 
-## Original Setup <a id="OriginalSetup">[▴](#toc)</a>
+## Original Setup <span id="OriginalSetup">[▴](#toc)</span>
 
 The following steps were completed to create the `quickstart-bootstrap-blog-updater` example. 
 
@@ -87,12 +93,27 @@ open quickstart-bootstrap-blog-updater.xcodeproj/
 Setting "upload" creation dates 
 
 ``` bash
-touch -t  201811220800 2018/11/FirstPost.md 
-touch -mt 201811220900 2018/11/FirstPost.md 
+cd <PATH>/blog_content_original/markdown
+## -t changes access and modified times.
+touch -t 201811220800 2018/11/FirstPost.md 
+
+touch 2018/11/FirstPost_files/*
+touch 2018/11/FirstPost_files/figure1.png
+touch 2018/11/FirstPost_files/figure2.jpg
+touch 2018/11/FirstPost_files/figure2.png
+touch 2018/11/FirstPost_files/figure3.pdf
+touch 2018/11/FirstPost_files/figure3.png
+touch 2018/11/FirstPost_files/figure4.gif
+touch 2018/11/FirstPost_files/figure4.png
+
+
+touch 2018/11/FirstPost_files/more/*
+touch 2018/11/FirstPost_files/more/folder-2103508.svg
+
 ```
 
 
-## Resources <a id="Resources">[▴](#toc)</a>
+## Resources <span id="Resources">[▴](#toc)</span>
 
 * [Bootstrap ⇗](https://getbootstrap.com)
 
